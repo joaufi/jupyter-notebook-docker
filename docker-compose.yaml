@@ -5,6 +5,8 @@ services:
     build:
       dockerfile: ./docker/server.dockerfile
       context: ./
+      args:
+        INSTALL_VIM_BINDINGS: "true"
     image: yasher/jupyter-notebook-docker
     volumes:
       - ./:/app

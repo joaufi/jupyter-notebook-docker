@@ -23,9 +23,8 @@ RUN pyenv install --verbose 3.8.1
 RUN pyenv virtualenv 3.8.1 app-stackist
 ENV PYENV_VERSION app-stackist
 
-# the requirements files MUST be copied from the docker build context into
-# the image itself
-COPY ./requirements.txt /app
+# copy contents of repository into docker /app context
+COPY ./ /app
 
 # set the working dir as the dir to open when the container is initially run
 # and for any docker commands to reference after this point
@@ -37,5 +36,9 @@ RUN pyenv exec pip install --upgrade pip
 
 # install app and test requirements
 RUN pyenv exec pip install -r requirements.txt
+
+# optionally install vim bindings
+ARG INSTALL_VIM_BINDINGS=false
+RUN ./docker/bin/install_vim_bindings.sh
 
 ENTRYPOINT jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir=./notebooks --allow-root
