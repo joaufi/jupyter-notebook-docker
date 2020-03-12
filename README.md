@@ -31,3 +31,4 @@ This will rebuild the image and install all dependencies listed in `requirements
 
 - Add a CHANGELOG.md following [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Add section on `INSTALL_VIM_BINDINGS` Docker ARG
+- Add section on shutting server down gracefully
