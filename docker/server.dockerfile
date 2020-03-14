@@ -41,4 +41,4 @@ RUN pyenv exec pip install -r requirements.txt
 ARG INSTALL_VIM_BINDINGS=false
 RUN ./docker/bin/install_vim_bindings.sh
 
-ENTRYPOINT jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir=./notebooks --allow-root
+ENTRYPOINT jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir=./notebooks --allow-root --no-browser
