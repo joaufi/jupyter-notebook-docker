@@ -3,7 +3,7 @@
 ##################
 
 docker/files/
-notebooks/
+!notebooks/README.md
 
 #####################
 # Generated Ignores #
