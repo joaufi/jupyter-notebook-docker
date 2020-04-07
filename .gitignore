@@ -4,6 +4,7 @@
 
 docker/files/
 !notebooks/README.md
+notebooks/*
 
 #####################
 # Generated Ignores #
