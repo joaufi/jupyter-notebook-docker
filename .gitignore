@@ -1,3 +1,15 @@
+##################
+# Manual Ignores #
+##################
+
+docker/files/
+!notebooks/README.md
+notebooks/*
+
+#####################
+# Generated Ignores #
+#####################
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

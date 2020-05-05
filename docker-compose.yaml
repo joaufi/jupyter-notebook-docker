@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      dockerfile: ./docker/server.dockerfile
+      context: ./
+      args:
+        INSTALL_VIM_BINDINGS: "true"
+    image: yasher/jupyter-notebook-docker
+    volumes:
+      - ./:/app
+    ports:
+      - 8888:8888
+    entrypoint: jupyter notebook --ip=0.0.0.0 --port=8888 --notebook-dir=./notebooks --allow-root --no-browser
