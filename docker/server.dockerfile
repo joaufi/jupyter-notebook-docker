@@ -2,11 +2,12 @@ FROM centos:7
 
 USER root
 
-# install packages needed for Python build environment
-RUN yum install -y sudo git-core make gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz && yum clean all
-
 # create the /app dir for copying/mounting our application files into
 RUN mkdir /app
+
+# install system dependencies
+COPY docker/bin/yum_install.sh /yum_install.sh
+RUN [ "/yum_install.sh" ]
 
 # set env vars for making use of pyenv
 ENV PYENV_ROOT /pyenv
