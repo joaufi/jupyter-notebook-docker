@@ -5,6 +5,7 @@
 docker/files/
 !notebooks/README.md
 notebooks/*
+.idea/
 
 #####################
 # Generated Ignores #
