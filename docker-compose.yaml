@@ -1,12 +1,11 @@
-version: "3.7"
-
 services:
   server:
     build:
       dockerfile: ./docker/server.dockerfile
       context: ./
       args:
-        INSTALL_VIM_BINDINGS: "true"
+        INSTALL_VIM_BINDINGS: "false"
+        PYTHON_VERSION: 3.14.2
     image: yasher/jupyter-notebook-docker
     volumes:
       - ./:/app

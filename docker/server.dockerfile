@@ -20,9 +20,10 @@ RUN git clone https://github.com/pyenv/pyenv-virtualenv.git $PYENV_ROOT/plugins/
 # install Python version and set it as global default version
 # use --verbose here otherwise the download and install of Python could appear
 # to be hanging and cancelled prematurely by the user
-RUN pyenv install --verbose 3.8.1
-RUN pyenv virtualenv 3.8.1 app-stackist
-ENV PYENV_VERSION app-stackist
+ARG PYTHON_VERSION
+RUN pyenv install --verbose $PYTHON_VERSION
+RUN pyenv virtualenv $PYTHON_VERSION venv
+ENV PYENV_VERSION venv
 
 # copy contents of repository into docker /app context
 COPY ./ /app
